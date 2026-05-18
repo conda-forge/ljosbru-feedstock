@@ -10,7 +10,7 @@ source:
   sha256: 645c4d992df224090da771fc723cc536ba4826d722d3e3ed005cf26234f40f33
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - package:
@@ -55,10 +55,18 @@ outputs:
           CARGO_PROFILE_RELEASE_STRIP: symbols
           CARGO_PROFILE_RELEASE_LTO: fat
         content:
-          - if: unix
+          - if: linux
             then:
               - cargo auditable install --locked --no-track --bin ljosbru-decode --features decode --root ${{ PREFIX }} --path .
-            else:
+          - if: osx
+            then:
+              # objc2-app-kit resolves AppKit classes at runtime; with strip=symbols + lto=fat the
+              # linker drops the framework load commands because nothing references them directly,
+              # which makes the binary panic with "class NSScreen could not be found" at startup.
+              # Force the linker to keep them.
+              - RUSTFLAGS="${RUSTFLAGS:-} -C link-arg=-Wl,-needed_framework,AppKit -C link-arg=-Wl,-needed_framework,Foundation -C link-arg=-Wl,-needed_framework,CoreGraphics -C link-arg=-Wl,-needed_framework,CoreFoundation" cargo auditable install --locked --no-track --bin ljosbru-decode --features decode --root ${{ PREFIX }} --path .
+          - if: win
+            then:
               - cargo auditable install --locked --no-track --bin ljosbru-decode --features decode --root %LIBRARY_PREFIX% --path .
           - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
 
