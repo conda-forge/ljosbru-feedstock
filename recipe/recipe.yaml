@@ -1,5 +1,5 @@
 context:
-  version: "0.0.3"
+  version: "0.0.4"
 
 recipe:
   name: ljosbru
@@ -7,7 +7,7 @@ recipe:
 
 source:
   url: https://github.com/pavelzw/ljosbru/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 645c4d992df224090da771fc723cc536ba4826d722d3e3ed005cf26234f40f33
+  sha256: 89e16926b539063fd92d0bad9fd81d64ce283aacf547543e6b19b9d66da11b3a
 
 build:
   number: 0
