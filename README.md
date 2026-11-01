@@ -68,6 +68,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-ljosbru--decode-green.svg)](https://anaconda.org/conda-forge/ljosbru-decode) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/ljosbru-decode.svg)](https://anaconda.org/conda-forge/ljosbru-decode) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/ljosbru-decode.svg)](https://anaconda.org/conda-forge/ljosbru-decode) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/ljosbru-decode.svg)](https://anaconda.org/conda-forge/ljosbru-decode) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-ljosbru--encode-green.svg)](https://anaconda.org/conda-forge/ljosbru-encode) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/ljosbru-encode.svg)](https://anaconda.org/conda-forge/ljosbru-encode) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/ljosbru-encode.svg)](https://anaconda.org/conda-forge/ljosbru-encode) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/ljosbru-encode.svg)](https://anaconda.org/conda-forge/ljosbru-encode) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-ljosbru--gui-green.svg)](https://anaconda.org/conda-forge/ljosbru-gui) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/ljosbru-gui.svg)](https://anaconda.org/conda-forge/ljosbru-gui) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/ljosbru-gui.svg)](https://anaconda.org/conda-forge/ljosbru-gui) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/ljosbru-gui.svg)](https://anaconda.org/conda-forge/ljosbru-gui) |
 
 Installing ljosbru-decode
 =========================
@@ -86,7 +87,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install ljosbru-decode ljosbru-encode
+conda install ljosbru-decode ljosbru-encode ljosbru-gui
 ```
 
 </details>
@@ -95,7 +96,7 @@ conda install ljosbru-decode ljosbru-encode
 <summary>With mamba</summary>
 
 ```
-mamba install ljosbru-decode ljosbru-encode
+mamba install ljosbru-decode ljosbru-encode ljosbru-gui
 ```
 
 </details>
@@ -105,9 +106,9 @@ mamba install ljosbru-decode ljosbru-encode
 
 ```
 # for adding to your local project
-pixi add ljosbru-decode ljosbru-encode
+pixi add ljosbru-decode ljosbru-encode ljosbru-gui
 # for installing globally
-pixi global install ljosbru-decode ljosbru-encode
+pixi global install ljosbru-decode ljosbru-encode ljosbru-gui
 ```
 
 </details>

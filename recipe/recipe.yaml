@@ -10,7 +10,7 @@ source:
   sha256: 7786e9afa764f7033bb0a8e327fb12a576dfb97f36961120f4012e835a3d6846
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - package:
@@ -85,6 +85,38 @@ outputs:
       - package_contents:
           bin:
             - ljosbru-decode
+          strict: true
+
+  - package:
+      name: ljosbru-gui
+      version: ${{ version }}
+
+    build:
+      skip: not (osx and arm64)
+      script:
+        env:
+          CARGO_PROFILE_RELEASE_STRIP: symbols
+          CARGO_PROFILE_RELEASE_LTO: fat
+        file: build-gui.sh
+
+    requirements:
+      build:
+        - ${{ stdlib('c') }}
+        - ${{ compiler('c') }}
+        - ${{ compiler('rust') }}
+        - cargo-bundle-licenses
+        - cargo-auditable
+
+    tests:
+      - script:
+          - test -x "${PREFIX}/Applications/ljosbru.app/Contents/MacOS/ljosbru-gui"
+          - /usr/bin/codesign --verify --strict "${PREFIX}/Applications/ljosbru.app"
+      - package_contents:
+          files:
+            - Applications/ljosbru.app/Contents/Info.plist
+            - Applications/ljosbru.app/Contents/MacOS/ljosbru-gui
+            - Applications/ljosbru.app/Contents/_CodeSignature/CodeResources
+            - Menu/ljosbru.json
           strict: true
 
 about:
