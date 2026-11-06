@@ -10,7 +10,7 @@ source:
   sha256: 7786e9afa764f7033bb0a8e327fb12a576dfb97f36961120f4012e835a3d6846
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - package:
@@ -71,7 +71,7 @@ outputs:
         - cargo-auditable
         - if: linux
           then:
-            - pkg-config
+            - pkgconf
       host:
         - if: linux
           then:
